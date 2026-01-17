@@ -1,0 +1,113 @@
+:root{
+--peach-1:#ffe6d5;
+--peach-2:#f8cdb6;
+--peach-3:#f7d7c7;
+--orange:#e67e22;
+--orange-d:#d35400;
+--gray-700:#5f5f5f;
+--card:#ffffffee;
+--border:#f1e7e2;
+}
+body{
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans KR',sans-serif;
+min-height:100vh; color:#333; line-height:1.6; overflow-x:hidden;}
+
+/* 헤더 */
+.header{background:#fff;padding:1rem 2rem;position:sticky;top:0;z-index:10;box-shadow:0 2px 14px rgba(0,0,0,.06)}
+.nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.logo-card{width:80px;height:80px;border-radius:14px;background:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.logo-img{width:100%;height:100%;object-fit:contain;border-radius:12px}
+.brand{font-size:1.8rem;font-weight:800;color:var(--orange);letter-spacing:-.5px;white-space:nowrap}
+
+.btns{display:flex;gap:.75rem}
+.btn{padding:.6rem 1.2rem;border-radius:24px;border:2px solid #e9e9e9;background:#fff;color:#4a4a4a;text-decoration:none;font-weight:700;transition:all .2s ease}
+.btn:hover{background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-2px)}
+.btn.primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.btn.primary:hover{background:var(--orange-d);border-color:var(--orange-d)}
+
+
+/* 배경 물방울 */
+.login-totalbox {
+    background:
+    radial-gradient(1200px 1200px at 30% 10%, var(--peach-3) 0%, transparent 60%),
+    linear-gradient(180deg, var(--peach-1) 0%, var(--peach-2) 100%);
+}
+.bubbles{position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0; mix-blend-mode:screen}
+.bubble{
+position:absolute; border-radius:50%;
+background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.95), rgba(255,255,255,.4) 55%, rgba(255,255,255,0) 70%);
+box-shadow:0 12px 24px rgba(255,255,255,.25);
+opacity:.7; filter:saturate(110%);
+animation:drift var(--dur,26s) ease-in-out infinite, bob var(--bobDur,9s) ease-in-out infinite;
+}
+.xs{width:42px;height:42px}.sm{width:64px;height:64px}.md{width:90px;height:90px}.lg{width:120px;height:120px;opacity:.6}
+.b1{left:-40px;top:20%;--dur:28s;--bobDur:10s;animation-delay:-2s}
+.b2{right:-70px;top:65%;--dur:32s;--bobDur:11s;animation-delay:-8s}
+.b3{left:15%;bottom:-70px;--dur:24s;--bobDur:9s;animation-delay:-5s}
+.b4{left:60%;top:-60px;--dur:30s;--bobDur:12s;animation-delay:-13s}
+.b5{left:75%;bottom:-50px;--dur:26s;--bobDur:10s;animation-delay:-4s}
+.b6{left:5%;top:-40px;--dur:34s;--bobDur:11s;animation-delay:-16s}
+.b7{right:10%;bottom:-60px;--dur:22s;--bobDur:8s;animation-delay:-9s}
+.b8{right:45%;top:-50px;--dur:29s;--bobDur:10s;animation-delay:-6s}
+@keyframes drift{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(64px,-40px) rotate(14deg)}100%{transform:translate(0,0) rotate(0)}}
+@keyframes bob{0%,100%{margin-top:0}50%{margin-top:-16px}}
+
+/* 레이아웃 */
+.container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:2rem;position:relative;z-index:1;}
+
+/* 왼쪽 비주얼 */
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.circle{
+width:420px;height:420px;border-radius:50%;
+background:rgba(255,255,255,.35);
+border:1.5px solid rgba(255,255,255,.8);
+box-shadow:0 24px 54px rgba(221,140,92,.22), inset 0 0 36px rgba(255,255,255,.5);
+position:relative;animation:floatCircle 4.2s ease-in-out infinite;
+display:flex;align-items:center;justify-content:center;
+
+/* ✅ 원 밖으로 절대 안 튀어나오게 */
+overflow:hidden;                /* 잘라내기 */
+-webkit-mask-image:radial-gradient(circle, #000 69%, transparent 70%); /* 안쪽 가장자리 부드럽게(선택) */
+mask-image:radial-gradient(circle, #000 69%, transparent 70%);
+}
+@keyframes floatCircle{0%{transform:translateY(0)}50%{transform:translateY(-12px)}100%{transform:translateY(0)}}
+
+/* ✅ 사진이 원 안을 꽉 채우고 중앙에 오도록 */
+.pets-photo{
+width:100%; height:100%;
+object-fit:cover;               /* 크롭 */
+object-position:center 55%;     /* 조금 위를 중심 */
+display:block;                  /* 여백 제거 */
+border-radius:0;                /* 원은 부모가 담당 */
+box-shadow:none;                /* 그림자는 필요없으니 제거 */
+transform:scale(1.03);          /* 가장자리 빈틈 방지 */
+}
+
+.title{margin-top:28px;font-size:2.35rem;font-weight:900;color:var(--orange);letter-spacing:.5px}
+.subtitle{margin-top:16px;color:#5f5f5f;font-size:1.05rem;line-height:1.9}
+
+/* 로그인 카드 */
+.card{background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:0 18px 44px rgba(0,0,0,.08);padding:2.2rem}
+.card h1{font-size:1.9rem;color:#2c3e50;margin-bottom:.35rem;text-align:center}
+.card p.desc{color:#7b8a97;margin-bottom:1.35rem;text-align:center}
+
+.field{margin-bottom:1.1rem}
+.form-label{display:block;margin-bottom:.5rem;color:#444;font-weight:700}
+.input{width:100%;height:50px;border-radius:14px;border:2px solid #f0e9e6;padding:0 1rem;font-size:1rem;background:#fff}
+.input:focus{outline:none;border-color:#f0d6c7;box-shadow:0 0 0 3px rgba(230,126,34,.12)}
+.row{display:flex;justify-content:space-between;align-items:center;margin:.5rem 0 1.2rem;color:#6b6b6b}
+.row a{color:var(--orange);font-weight:700;text-decoration:none}
+.submit{width:100%;height:50px;border-radius:14px;border:none;background:var(--orange);color:#fff;font-weight:800;font-size:1.05rem;cursor:pointer;box-shadow:0 10px 24px rgba(230,126,34,.28)}
+.submit:hover{background:var(--orange-d)}
+
+.signup{margin-top:.75rem;text-align:center;color:#666}
+.signup a{color:var(--orange);font-weight:800;text-decoration:none}
+
+@media(max-width:1024px){
+.container{grid-template-columns:1fr;padding:1.5rem}
+.circle{width:320px;height:320px}
+.logo-card{width:48px;height:48px}
+.brand{font-size:1.5rem}
+}
+@media (prefers-reduced-motion:reduce){.circle,.bubble{animation:none!important}}

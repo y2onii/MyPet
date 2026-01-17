@@ -1,0 +1,137 @@
+:root{
+--card-w: 320px;
+--card-img-h: 200px;
+--card-body-h: 270px;
+--brand:#e67e22;
+--brand-d:#d35400;
+--ink:#333;
+--muted:#666;
+--line:#ddd;
+/* 배너 배경색: 연한 피치(반투명) */
+--pink-bg:#f6d0bda1;
+--banner-max:1380px; /* 배너 최대 가로폭 */
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans KR',sans-serif;background:#fff !important;color:var(--ink);line-height:1.6}
+
+/* 헤더 */
+.header{background:#fff;padding:1rem 2rem;box-shadow:0 2px 10px rgba(0,0,0,.05);position:sticky;top:0;z-index:100}
+.nav-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:1rem}
+.logo-link{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand-text{font-size:1.8rem;font-weight:800;color:var(--brand);letter-spacing:-.5px;white-space:nowrap}
+.logo-card{width:85px;height:85px;border-radius:12px;background:#fff;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.logo-img{width:100%;height:100%;object-fit:contain;display:block}
+
+.nav-menu-wrap{display:flex;justify-content:center}
+.nav-menu{display:flex;gap:2rem;list-style:none}
+.nav-menu a{position:relative;text-decoration:none;color:#4a4a4a;font-weight:700;font-size:clamp(17px,1.15vw,19px);padding:12px 0;transition:color .2s}
+.nav-menu a:hover{color:var(--brand)}
+.nav-menu a::after{content:"";position:absolute;left:50%;bottom:-6px;width:0;height:4px;transform:translateX(-50%);background:#ffb74d;border-radius:999px;transition:width .22s}
+.nav-menu a.active{color:var(--brand)}
+.nav-menu a.active::after{width:28px}
+
+.nav-buttons{display:flex;gap:1rem;justify-content:flex-end}
+.btn{padding:.7rem 1.5rem;border-radius:25px;text-decoration:none;font-weight:600;transition:all .2s;border:2px solid transparent;cursor:pointer;display:inline-block;min-height:44px;font-size:16px}
+.btn-white{background:#fff;color:#666;border:2px solid #ddd}
+.btn-white:hover{background:var(--brand);color:#fff;border-color:var(--brand);transform:translateY(-1px)}
+
+/* 메인 컨테이너(고정) */
+.main-section{max-width:1200px;margin:0 auto;padding:3rem 2rem}
+
+/* 배너: 배너만 넓게(풀-블리드 느낌) */
+.impact-banner{
+background:var(--pink-bg);           /* ← 핑크 배경만 남김 */
+border-radius:24px;
+margin:2rem 0 3rem;
+width:min(100vw, var(--banner-max));
+position:relative; left:50%; transform:translateX(-50%);
+overflow:hidden;
+}
+.impact-inner{
+max-width:1400px;           /* 배너 내부 안전 폭 */
+margin:0 auto;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+gap:2rem; align-items:center;
+padding:3rem 3rem;
+}
+.impact-inner.image-left{grid-template-columns:0.9fr 1.1fr}
+
+.impact-copy{display:flex;flex-direction:column;gap:1.1rem}
+.impact-kicker{font-weight:800;color:#9b3a3a;letter-spacing:-.2px;opacity:.9}
+.impact-title{font-size:clamp(24px,3.2vw,40px);font-weight:900;line-height:1.25;letter-spacing:-.5px;color:#6a1f1f}
+.impact-desc{color:#7a6f70;font-size:clamp(15px,1.1vw,18px)}
+.impact-cta{margin-top:.3rem;display:inline-flex;align-items:center;justify-content:center;width:fit-content;padding:.9rem 1.2rem;background:#ff7b7b;color:#fff;text-decoration:none;border-radius:16px;font-weight:800;transition:transform .15s,filter .15s}
+.impact-cta:hover{transform:translateY(-1px);filter:brightness(.96)}
+
+/* 이미지 영역: PNG만 표시 (원형 프레임 제거) */
+.impact-photo{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-png{
+width:380px;   /* 적절한 너비 */
+height:380px;
+object-fit:cover;
+/* 부드러운 떠있는 느낌만 */
+filter: drop-shadow(0 12px 24px rgba(0,0,0,.12));
+pointer-events:none;      /* 드래그 방지 느낌 */
+user-select:none;
+border-radius: 100%;
+}
+
+@media (max-width:860px){
+.impact-inner{grid-template-columns:1fr;padding:2rem 1.5rem;gap:1.5rem}
+.hero-png{width:min(420px, 80vw)}
+.nav-menu-wrap{display:none}
+.main-section{padding:2rem 1rem}
+}
+
+/* 하단 둥근 칩 */
+.bottom-rounded{display:flex;justify-content:center;margin-top:1.25rem}
+.rounded-chip{background:rgba(255,255,255,.9);border:1px solid #f1d9d9;padding:1rem 1.5rem;border-radius:9999px;color:#777;text-align:center;line-height:1.8;font-weight:700;box-shadow:0 5px 14px rgba(0,0,0,.06)}
+
+/* 기능 카드 섹션 */
+.intro-features{text-align:center;margin-bottom:4rem}
+.intro-title{font-size:2rem;color:#333;margin-bottom:1rem}
+.intro-subtitle{color:#666;margin-bottom:3rem;font-size:1.1rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:3rem}
+.feature-card{background:#fff;padding:2rem;border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,.08);text-align:center;transition:transform .2s}
+.feature-card:hover{transform:translateY(-3px)}
+.feature-icon{width:80px;height:80px;border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2rem;color:#fff}
+.feature-icon.search,.feature-icon.location,.feature-icon.education,.feature-icon.contact{background:linear-gradient(135deg,var(--brand),var(--brand-d))}
+.feature-icon.heart{background:linear-gradient(135deg,#3498db,#2980b9)}
+.feature-icon.health{background:linear-gradient(135deg,#2ecc71,#27ae60)}
+.feature-title{font-size:1.3rem;color:#333;margin-bottom:1rem;font-weight:600}
+.feature-description{color:#666;line-height:1.6;font-size:.95rem}
+
+/* 슬라이더 섹션 */
+.new-friends-section{margin-bottom:3rem}
+.divider-line{width:100%;height:2px;background:repeating-linear-gradient(to right,#ddd 0,#ddd 8px,transparent 8px,transparent 12px);margin:2rem 0}
+.section-title{font-size:1.5rem;color:#333;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px dotted #ddd}
+.section-subtitle{color:#666;margin-bottom:2rem;font-size:1rem}
+
+.pets-slider-container{position:relative}
+.pets-slider{display:flex;gap:2rem;overflow-x:auto;scroll-behavior:smooth;padding-bottom:1rem;scrollbar-width:none;-ms-overflow-style:none;align-items:stretch}
+.pets-slider::-webkit-scrollbar{display:none}
+
+.pet-card{width:var(--card-w);height:calc(var(--card-img-h) + var(--card-body-h));background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.1);flex:0 0 var(--card-w);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.pet-card:hover,.pet-card:focus-within{transform:translateY(-3px) scale(1.03);box-shadow:0 10px 26px rgba(0,0,0,.12)}
+.pet-image{width:100%;height:var(--card-img-h);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:#fafafa;flex:0 0 var(--card-img-h)}
+.pet-image img{width:100%;height:100%;object-fit:cover;display:block}
+.pet-info{padding:1.5rem;height:var(--card-body-h);display:flex;flex-direction:column;gap:.65rem}
+.pet-name{font-size:1.6rem;font-weight:800;color:#333;min-height:28px; margin-bottom:3px;}
+.pet-details{color:#666;font-size:.95rem;line-height:1.7;min-height:52px}
+.pet-tags{display:flex;gap:.5rem;flex-wrap:wrap;min-height:36px}
+.pet-location{color:#999;font-size:.9rem;display:flex;align-items:center;gap:.3rem;min-height:24px}
+.tag{padding:.3rem .8rem;border-radius:15px;font-size:.8rem;font-weight:600}
+.tag.health{background:#e8f5e8;color:#27ae60}
+.tag.vaccination{background:#e3f2fd;color:#1976d2}
+.tag.personality{background:#fce4ec;color:#c2185b}
+.pet-button{margin-top:auto;width:100%;background:var(--brand);color:#fff;border:none;padding:.9rem;border-radius:10px;font-weight:800;cursor:pointer;transition:all .2s}
+.pet-button:hover{background:var(--brand-d);transform:translateY(-1px)}
+
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);background:#2ecc71;color:#fff;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:10}
+.slider-arrow:hover{background:#27ae60;transform:translateY(-50%) scale(1.05)}
+.slider-arrow.prev{left:-20px}.slider-arrow.next{right:-20px}
+
+.more-button a { display:block; text-align: right; color:var(--brand); text-decoration: none;font-weight: 500; margin-top:30px; }
+@media (max-width:768px){.slider-arrow{display:none}.pets-slider{padding:0 1rem}}

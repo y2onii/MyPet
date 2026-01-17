@@ -1,0 +1,645 @@
+/* PetRegistration.css */
+
+/* 검색 컨테이너 스타일 */
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.search-loading {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-top: none;
+  padding: 10px;
+  font-size: 14px;
+  color: #666;
+  z-index: 10;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.search-result-item {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+  background-color: #f8f9fa;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.place-name {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.place-address {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.place-phone {
+  font-size: 12px;
+  color: #888;
+}
+
+.place-category {
+  font-size: 12px;
+  color: #007bff;
+  margin-bottom: 2px;
+}
+
+.search-no-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-top: none;
+  padding: 10px;
+  font-size: 14px;
+  color: #856404;
+  text-align: center;
+  z-index: 10;
+}
+
+.selected-location-info {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  color: #155724;
+  font-size: 14px;
+}
+
+.api-loading {
+  font-size: 12px;
+  color: #ffc107;
+  font-weight: normal;
+}
+
+.api-ready {
+  font-size: 12px;
+  color: #28a745;
+  font-weight: normal;
+}
+
+.search-input:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.api-fallback-info {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 4px;
+  color: #856404;
+  font-size: 14px;
+}
+
+.fallback-examples {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.adoption-form-container {
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 50px 2rem;
+  background-color: #ffffff;
+  border-radius: 25px;
+  font-family: 'Arial', sans-serif;
+  background: rgba(255, 255, 255, .85);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .08);
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 섹션 스타일 */
+.form-section {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 20px;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-title.registration {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #FF783A;
+  padding-bottom: 8px;
+  display: inline-block;
+  text-align: left;
+}
+
+/* 폼 그룹 스타일 */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+/* 입력 필드 스타일 */
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #FF783A;
+  box-shadow: 0 0 0 2px rgba(255, 120, 58, 0.1);
+}
+
+/* 라디오 버튼 스타일 */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 8px;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  user-select: none;
+}
+
+.radio-item input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-custom {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-item input[type="radio"]:checked + .radio-custom {
+  border-color: #FF783A;
+  background-color: #ffffff;
+}
+
+.radio-item input[type="radio"]:checked + .radio-custom::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FF783A;
+}
+
+.radio-item:hover .radio-custom {
+  border-color: #FF783A;
+}
+
+.radio-item input[type="radio"]:focus + .radio-custom {
+  box-shadow: 0 0 0 2px rgba(255, 120, 58, 0.2);
+}
+
+/* ImageUploadForm.css */
+.upload-form-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #FF783A;
+  padding-bottom: 10px;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.upload-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-button {
+  background-color: #FF783A;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.upload-limit {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* 이미지 업로드 영역 */
+.image-upload-area {
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.image-upload-area:hover {
+  border-color: #FF783A;
+}
+
+.file-input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.upload-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-placeholder:hover {
+  background-color: #f9fafb;
+}
+
+.upload-content {
+  text-align: center;
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.upload-content p {
+  margin: 8px 0;
+  color: #374151;
+  font-size: 16px;
+}
+
+.upload-subtitle {
+  font-size: 14px !important;
+  color: #6b7280 !important;
+}
+
+/* 이미지 미리보기 */
+.image-preview-container {
+  padding: 20px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.image-preview {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #e5e7eb;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(220, 38, 38, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.remove-button:hover {
+  background-color: rgba(220, 38, 38, 1);
+}
+
+.add-more-button {
+  aspect-ratio: 1;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #6b7280;
+}
+
+.add-more-button:hover {
+  border-color: #FF783A;
+  color: #FF783A;
+  background-color: #fff7ed;
+}
+
+.add-icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.image-count {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* 텍스트에어리어 영역 */
+.textarea-container {
+  position: relative;
+}
+
+.content-textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 15px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.content-textarea:focus {
+  outline: none;
+  border-color: #FF783A;
+  box-shadow: 0 0 0 3px rgba(255, 120, 58, 0.1);
+}
+
+.content-textarea::placeholder {
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+.character-count {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 12px;
+  color: #6b7280;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 버튼 영역 */
+.button-section {
+  text-align: center;
+  margin-top: 70px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px 0 50px;
+}
+
+.cancel-button {
+  padding: 12px 30px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  background-color: #FF783A;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.pagination {
+  position:relative;
+}
+
+.list-button.regi {
+  position:absolute;
+  right: 0;
+  margin:0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .adoption-form-container {
+    margin: 10px;
+    padding: 16px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .section-title {
+    font-size: 15px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cancel-button,
+  .submit-button {
+    width: 100%;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .upload-form-container {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .form-title {
+    font-size: 20px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .upload-placeholder {
+    min-height: 150px;
+  }
+
+  .upload-icon {
+    font-size: 36px;
+  }
+
+  .content-textarea {
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .adoption-form-container {
+    margin: 5px;
+    padding: 12px;
+  }
+
+  .form-wrapper {
+    gap: 20px;
+  }
+
+  .form-section {
+    padding-bottom: 15px;
+  }
+
+  .section-title {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .upload-form-container {
+    margin: 5px;
+    padding: 15px;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .upload-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}

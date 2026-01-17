@@ -1,0 +1,62 @@
+/* ===== 메인 레이아웃 ===== */
+.main{max-width:1400px;margin:0 auto;padding:2rem}
+
+/* 히어로 */
+.hero{background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border-radius:25px;box-shadow:0 10px 40px rgba(0,0,0,.08);padding:3rem 2rem;margin-bottom:2rem;text-align:center}
+.hero h1{font-size:2.4rem;font-weight:900;background:linear-gradient(135deg,#e67e22,#f39c12);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.6rem}
+.hero p{color:#7b8a97}
+
+/* 필터 */
+.filters{background:#fff;border-radius:20px;box-shadow:0 8px 30px rgba(0,0,0,.08);padding:2rem;margin:2rem 0}
+.filters h2{font-size:1.3rem;margin-bottom:1rem;color:#2c3e50}
+.filter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.filter-label{display:block;margin:.25rem 0 .4rem;color:#2c3e50;font-weight:700;font-size:.9rem}
+.filter-select{width:100%;padding:1rem;border:2px solid #ecf0f1;border-radius:12px;font-size:.95rem;background:#fff;color:#2c3e50;transition:border .2s ease,box-shadow .2s ease}
+.filter-select:focus{outline:none;border-color:#e67e22;box-shadow:0 0 0 3px rgba(230,126,34,.12)}
+
+/* 카드 그리드 */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem;margin-top:2rem}
+.card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.1);transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.14)}
+
+/* 썸네일: 이미지/그라디언트 공용 컨테이너 */
+.thumb{
+    height:240px;position:relative;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:4rem;overflow:hidden;
+}
+.thumb img{
+    width:100%;height:100%;object-fit:cover;display:block;
+}
+/* 이미지 없을 때 이모지를 가운데 보여주기 위한 레이어 */
+.thumb .fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+
+/* 그라디언트 세트 (이미지 없을 때 적용) */
+.gradient1{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)}
+.gradient2{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%)}
+.gradient3{background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%)}
+.gradient4{background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%)}
+.gradient5{background:linear-gradient(135deg,#fa709a 0%,#fee140 100%)}
+.gradient6{background:linear-gradient(135deg,#a8edea 0%,#fed6e3 100%)}
+
+.body{padding:1.6rem}
+.name{font-size:1.4rem;font-weight:800;color:#2c3e50;margin-bottom:.4rem}
+.meta{color:#7f8c8d;margin-bottom:1rem}
+.tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.tag{padding:.35rem .9rem;border-radius:16px;font-size:.8rem;font-weight:700;color:#fff}
+.tag.health{background:linear-gradient(135deg,#2ecc71,#27ae60)}
+.tag.vaccination{background:linear-gradient(135deg,#3498db,#2980b9)}
+.tag.personality{background:linear-gradient(135deg,#e67e22,#d35400)}
+.loc{color:#95a5a6;margin-bottom:1.1rem}
+.cta{width:100%;border:none;border-radius:14px;background:linear-gradient(135deg,#e67e22,#f39c12);color:#fff;font-weight:800;padding:.95rem;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(230,126,34,.28)}
+
+/* 페이지네이션 */
+.pagination{display:flex;justify-content:center;gap:.5rem;margin:3rem 0}
+.page{padding:.8rem 1.1rem;border:2px solid #ecf0f1;background:#fff;border-radius:12px;cursor:pointer;font-weight:700;color:#7f8c8d;transition:all .2s ease}
+.page:hover{transform:translateY(-2px)}
+.page.active{background:linear-gradient(135deg,#e67e22,#f39c12);color:#fff;border-color:#e67e22}
+
+@media(max-width:768px){
+    .main{padding:1rem}
+    .btns{display:none}
+}
